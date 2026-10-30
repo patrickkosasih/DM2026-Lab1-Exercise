@@ -106,8 +106,8 @@ def make_tools(session):
             db_path = tmp_db.name
 
         try:
-            converter = db_converter.DF2DB(trans_df, 1)
-            converter.convert2TransactionalDatabase(db_path)
+            converter = db_converter.DF2DB(trans_df, "dense")
+            converter.convert2TransactionalDatabase(db_path, ">=", 1)
 
             # Validate parameters and instantiate algorithm
             if algorithm in ("fpgrowth", "maxfpgrowth"):
@@ -132,7 +132,7 @@ def make_tools(session):
                 for _, row in patterns_df.iterrows():
                     pat_str = str(row["Patterns"])
                     supp_val = float(row["Support"])
-                    items = pat_str.strip().split("\t")
+                    items = pat_str.strip().split()
                     patterns_list.append({"pattern": items, "support": supp_val})
 
             result_id = session.next_result_id("patterns")
