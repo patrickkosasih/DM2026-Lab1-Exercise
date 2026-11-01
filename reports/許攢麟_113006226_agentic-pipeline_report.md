@@ -32,4 +32,4 @@ To check whether the categories form visible groups, I projected the documents i
 
 ## Binarize and Cosine Similarity
 
-Finally, `binarize_labels_tool` encoded the 1,000 documents into one-hot format. Then I used `cosine_similarity_tool` to compare same-category document pairs identified through `inspect_data_tool`. Their similarities were 0.1771, 0.1518, 0.2772, and 0.3399, respectively.
+Finally, `binarize_labels_tool` encoded the 1,000 documents into one-hot format. Then I used `cosine_similarity_tool` to compare same-category document pairs identified through `inspect_data_tool`. Some documents of the same category had higher cosine similarities, but some don't.
